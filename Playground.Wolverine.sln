@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Wolverine", "Playground.Wolverine\Playground.Wolverine.csproj", "{F6DBB9E0-B6F2-4215-A1D4-AF4E702CC0D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Wolverine.Test", "Playground.Wolverine.Test\Playground.Wolverine.Test.csproj", "{9F3A1996-1E24-4983-B12E-2DC428ADC450}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{F6DBB9E0-B6F2-4215-A1D4-AF4E702CC0D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6DBB9E0-B6F2-4215-A1D4-AF4E702CC0D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6DBB9E0-B6F2-4215-A1D4-AF4E702CC0D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F3A1996-1E24-4983-B12E-2DC428ADC450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F3A1996-1E24-4983-B12E-2DC428ADC450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F3A1996-1E24-4983-B12E-2DC428ADC450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F3A1996-1E24-4983-B12E-2DC428ADC450}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
