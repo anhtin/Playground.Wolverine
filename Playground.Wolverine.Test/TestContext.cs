@@ -6,7 +6,7 @@ namespace Playground.Wolverine.Test;
 
 public class TestContext : IClassFixture<AppFixture>
 {
-    public TestContext(AppFixture fixture)
+    protected TestContext(AppFixture fixture)
     {
         Host = fixture.Host;
         Store = Host.Services.GetRequiredService<IDocumentStore>();

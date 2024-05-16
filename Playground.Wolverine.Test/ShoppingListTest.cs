@@ -1,22 +1,20 @@
 using FluentAssertions;
 using JasperFx.Core;
+using Microsoft.Extensions.DependencyInjection;
 using Playground.Wolverine.Handlers;
 using Playground.Wolverine.Models;
-using Wolverine.Tracking;
+using Wolverine;
 
 namespace Playground.Wolverine.Test;
 
-public class Repro : TestContext
+public class ShoppingListTest(AppFixture fixture) : TestContext(fixture)
 {
-    public Repro(AppFixture fixture) : base(fixture)
-    {
-    }
-
     [Fact]
     public async Task Create_shopping_list()
     {
         // Act
-        var (_, shoppingListId) = await Host.InvokeMessageAndWaitAsync<string>(new CreateShoppingList());
+        var messageBus = Host.Services.GetRequiredService<IMessageBus>();
+        var shoppingListId = await messageBus.InvokeAsync<string>(new CreateShoppingList());
 
         // Assert
         var session = Store.LightweightSession();
@@ -35,7 +33,8 @@ public class Repro : TestContext
 
         // Act
         var beforeAct = DateTimeOffset.UtcNow;
-        await Host.InvokeMessageAndWaitAsync(new AddShoppingListItem(shoppingListId, "test-item"));
+        var messageBus = Host.Services.GetRequiredService<IMessageBus>();
+        await messageBus.InvokeAsync(new AddShoppingListItem(shoppingListId, "test-item"));
 
         // Assert
         var appendedEvents = session.Events.QueryAllRawEvents()

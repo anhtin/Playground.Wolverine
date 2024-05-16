@@ -25,7 +25,8 @@ builder.Services.AddMarten(options =>
     })
     .UseLightweightSessions()
     .OptimizeArtifactWorkflow(TypeLoadMode.Static)
-    .IntegrateWithWolverine();
+    .IntegrateWithWolverine()
+    .EventForwardingToWolverine();
 
 builder.Host.UseResourceSetupOnStartup();
 builder.Services.AssertAllExpectedPreBuiltTypesExistOnStartUp();
